@@ -22,7 +22,7 @@
     <%= form_with url: "/applications/#{@application.id}", method: :patch, local: true do |form| %>
       <%= form.hidden_field :status, value: "Pending" %>
       <%= form.label :description, "Description" %>
-      <%= form.text_field :description, :required => true %>
+      <%= form.text_field :description %>
       <%= form.submit "Submit Application" %>
     <% end %>
 <% end %>

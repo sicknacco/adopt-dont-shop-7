@@ -12,15 +12,19 @@ class ApplicationsController < ApplicationController
     if @application.save
       redirect_to "/applications/#{@application.id}"
     else
-      redirect_to "/applications/new"
       flash[:alert] = "Error: You must complete all fields"
+      redirect_to "/applications/new"
     end
   end
 
   def update
     @application = Application.find(params[:id])
-    @application.update(app_params)
-    redirect_to("/applications/#{@application.id}")
+    if @application.update(app_params)
+      redirect_to "/applications/#{@application.id}"
+    else
+      flash[:alert] = "Yo, fill the field please"
+      render :new
+    end
   end
 
   private
