@@ -53,17 +53,17 @@ def admin_test_data
   @pet_5 = @shelter_3.pets.create!(adoptable: true, age: 4, breed: "tabby", name: "Pepper")
 
   @application_1 = Application.create!(name: "Bob", street_address: "1234 Southeast St",
-  city: "San Francisco", state: "CA", zip_code: 12345,
+  city: "San Francisco", state: "CA", zip_code: "2234R",
   description: "Wants a dog", status: "Pending")
   @application_2 = Application.create!(name: "Sally", street_address: "4321 Bridge Way",
-  city: "San Francisco", state: "CA", zip_code: 54321,
+  city: "San Francisco", state: "CA", zip_code: "AR321",
   description: "Would like a siamese cat", status: "Pending")
 
   @application_3 = Application.create!(name: "Fred", street_address: "376 Monroe St",
-  city: "Los Angeles", state: "CA", zip_code: 67890,
+  city: "Los Angeles", state: "CA", zip_code: "67890",
   description: "My wife really wants this cat", status: "In Progress")
   @application_5 = Application.create!(name: "Jimbo", street_address: "45865 Turnaround St",
-  city: "NYC", state: "NY", zip_code: 84930,
+  city: "NYC", state: "NY", zip_code: "84930",
   description: "I want a big ol dog", status: "Pending")
 
   PetApplication.create!(pet: @pet_2, application: @application_1)
