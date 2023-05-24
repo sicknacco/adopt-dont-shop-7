@@ -1,14 +1,16 @@
 <h1><%= @application.name %>'s Application</h1>
 
-<h3>Pending Pets:</h3>
-  <ul>
-    <% @application.pets.each do |pet| %>
-      <li><%= pet.name %></li>
-      <% if pet.pa_status(@application.id) == "Pending" %>
-        <%= button_to "Approve #{pet.name}", "/admin/applications/#{@application.id}?pet_app_status=Approved&pet_id=#{pet.id}", method: :patch %>
-        <%= button_to "Deny #{pet.name}", "/admin/applications/#{@application.id}?pet_app_status=Denied&pet_id=#{pet.id}", method: :patch %>
+<section id="pending_pets">
+  <h3>Pending Pets:</h3>
+    <ul>
+      <% @application.pets.each do |pet| %>
+        <li><%= pet.name %></li>
+        <% if pet.pa_status(@application.id) == "Pending" %>
+          <%= button_to "Approve #{pet.name}", "/admin/applications/#{@application.id}?pet_app_status=Approved&pet_id=#{pet.id}", method: :patch %>
+          <%= button_to "Deny #{pet.name}", "/admin/applications/#{@application.id}?pet_app_status=Denied&pet_id=#{pet.id}", method: :patch %>
+        <% end %>
+          <p>Pet Status: <%= pet.pa_status(@application.id) %></p>
       <% end %>
-        <p>Pet Status: <%= pet.pa_status(@application.id) %></p>
-    <% end %>
-  </ul>
+    </ul>
+</section>
 
